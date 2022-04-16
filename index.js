@@ -1,12 +1,12 @@
 const express = require('express');
 const minimist = require('minimist');
-const db = require("./database.js");
+const db = require("./src/services/database.js");
 const morgan = require('morgan');
 const fs = require('fs');
 
-
 const app = express()
 const argv = (minimist)(process.argv.slice(2));
+
 
 // Set valid args
 argv["port"];
@@ -77,11 +77,35 @@ if (debug == true) {
   });
 }
 
-// Log endpoint
+// Write log file
 if (log == true) {
   const WRITESTREAM = fs.createWriteStream('FILE', { flags: 'a' })
   app.use(morgan('combined', { stream: WRITESTREAM }))
 } 
+
+
+// app endpoint
+app.get('/app/', (req, res) => {
+    // Add response headerds
+    //res.writeHead( res.statusCode, { 'Content-Type' : 'application/json' });
+    res.status(200).json({"message" : "Your API works! (200)"});
+});
+
+
+// flip endpoint
+app.get('/app/flip/', (req, res) => {
+    flip_result = coinFlip();
+    res.status(200).json({"flip" : flip_result});
+});
+
+
+// flips endpoint
+app.get('/app/flips/:number', (req, res) => {
+    amt = req.params.number
+    coin_flips = coinFlips(amt)
+    flips_counted = countFlips(coin_flips)
+    res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
+});
 
 
 // Default response for any other request
@@ -89,3 +113,69 @@ app.use(function(req, res){
     res.status(404).send('404 NOT FOUND')
 });
 
+
+
+function coinFlip() {
+    let rand = Math.floor(Math.random() * 2);
+    if (rand == 1) {
+      return "heads";
+    } else {
+      return "tails";
+    }
+  }
+  
+  
+  function coinFlips(flips) {
+    let result = [];
+    for (let i = 0; i < flips; i++) {
+      result.push(coinFlip());
+    }
+    return result;
+  }
+  
+  
+  function countFlips(array) {
+    let num_tails = 0;
+    let num_heads = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == "heads") {
+        num_heads += 1;
+      } else {
+        num_tails += 1;
+      }
+    }
+    if (num_heads == 0) {
+      return {
+        tails: num_tails
+      };
+    }
+    if (num_tails == 0) {
+      return {
+        heads: num_heads,
+      };
+    }
+    return {
+      heads: num_heads,
+      tails: num_tails
+    };
+  }
+  
+  
+  function flipACoin(call) {
+    let coin  = coinFlip();
+    if (coin == call) {
+      return {
+        call: call,
+        flip: coin,
+        result: "win"
+      };
+    } else {
+      return {
+        call: call,
+        flip: coin,
+        result: "lose"
+      };
+    }
+  }
+  
+  
