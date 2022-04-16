@@ -7,6 +7,8 @@ const fs = require('fs');
 const app = express()
 const argv = (minimist)(process.argv.slice(2));
 
+// Exposes public directory to the web
+app.use(express.static('./public'));
 
 // Set valid args
 argv["port"];

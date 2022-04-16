@@ -84,13 +84,13 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/
 ```
 
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
@@ -104,13 +104,13 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flips/:number/
 ```
 
 #### Response body
 
 ```
-
+{"raw":["tails","heads","tails"],"summary":{"heads":1,"tails":2}}
 ```
 
 #### Response headers
