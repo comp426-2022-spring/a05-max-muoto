@@ -144,13 +144,13 @@ curl http://localhost:5000/app/flips/:number/
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/call/:guess(heads|tails)
 ```
 
 #### Response body
 
 ```
-
+{"call":"tails","flip":"heads","result":"lose"}
 ```
 
 #### Response headers

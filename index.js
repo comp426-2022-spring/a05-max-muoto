@@ -110,6 +110,11 @@ app.get('/app/flips/:number', (req, res) => {
 });
 
 
+app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
+    const game = flipACoin(req.params.guess)
+    res.status(200).json(game)
+})
+
 // Default response for any other request
 app.use(function(req, res){
     res.status(404).send('404 NOT FOUND')
@@ -126,17 +131,17 @@ function coinFlip() {
     }
   }
   
-  
-  function coinFlips(flips) {
+
+function coinFlips(flips) {
     let result = [];
     for (let i = 0; i < flips; i++) {
       result.push(coinFlip());
     }
     return result;
-  }
+}
   
   
-  function countFlips(array) {
+function countFlips(array) {
     let num_tails = 0;
     let num_heads = 0;
     for (let i = 0; i < array.length; i++) {
@@ -160,10 +165,10 @@ function coinFlip() {
       heads: num_heads,
       tails: num_tails
     };
-  }
+}
   
   
-  function flipACoin(call) {
+function flipACoin(call) {
     let coin  = coinFlip();
     if (coin == call) {
       return {
@@ -178,6 +183,6 @@ function coinFlip() {
         result: "lose"
       };
     }
-  }
+}
   
   
