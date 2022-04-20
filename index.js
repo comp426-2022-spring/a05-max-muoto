@@ -98,6 +98,7 @@ app.get('/app/', (req, res) => {
 app.get('/app/flip/', (req, res) => {
     flip_result = coinFlip();
     res.status(200).json({"flip" : flip_result});
+    console.log(res.getHeaders());
 });
 
 
