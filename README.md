@@ -144,13 +144,20 @@ curl http://localhost:5000/app/flip/coin/
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE
+Date: Wed, 20 Apr 2022 05:30:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/:guess/ (GET)
