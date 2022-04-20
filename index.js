@@ -108,6 +108,7 @@ app.get('/app/flips/:number', (req, res) => {
     coin_flips = coinFlips(amt)
     flips_counted = countFlips(coin_flips)
     res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
+    console.log(res.getHeaders());
 });
 
 
