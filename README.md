@@ -99,7 +99,7 @@ curl http://localhost:5000/app/flip/
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 35
+Content-Length: 16
 ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE
 Date: Thu, 07 Apr 2022 15:07:49 GMT
 Connection: keep-alive
