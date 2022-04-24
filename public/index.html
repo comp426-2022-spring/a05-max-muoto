@@ -40,14 +40,20 @@
           <li>Guess Flip - You can guess either heads or tails and see the actual result to see if you guessed correctly.</li>
         </ul>
     </div>    
-    <div id="single" class="hidden">
+    <div id="single">
+      <button onclick="flipCoin()"> Flip a Single Coin </button>
+
+      <p>Result: <span id="result"></span></p>
       
+      <img src="./assets/img/coin.png" id="smallcoin">
+
     </div>
     <div id="multi" class="hidden">
-      
+      <button onclick="flipMultiple()"> Flip Multiple Coins</button>
     </div>
     <div id="guess" class="hidden">
-      
+      <button onclick="guessHeads()"> Guess Heads </button>
+      <button onclick="guessTails()"> Guess Tails </button>
     </div>
 	<script src="main.js"></script>
   </body>

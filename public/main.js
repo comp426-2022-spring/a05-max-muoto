@@ -6,3 +6,17 @@
 // Enter number and press button to activate coin flip series
 
 // Guess a flip by clicking either heads or tails button
+
+
+function flipCoin() {
+    fetch("http://localhost:5000/app/flip/")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(result) {
+            console.log(result);
+            document.getElementById("result").innerHTML = result.flip;
+            document.getElementById("smallcoin").setAttribute("src", "./assets/img/" + result.flip + ".png");
+            coin.disabled = true;
+        })
+    }
