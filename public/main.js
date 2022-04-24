@@ -8,6 +8,11 @@
 // Guess a flip by clicking either heads or tails button
 
 
+
+
+
+
+// Calls the /app/flip endpoint
 function flipCoin() {
     fetch("http://localhost:5000/app/flip/")
         .then(function(response) {
@@ -19,4 +24,4 @@ function flipCoin() {
             document.getElementById("smallcoin").setAttribute("src", "./assets/img/" + result.flip + ".png");
             coin.disabled = true;
         })
-    }
+}

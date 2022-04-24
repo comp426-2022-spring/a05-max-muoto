@@ -41,15 +41,29 @@
         </ul>
     </div>    
     <div id="single">
+      <h1>Flip a Single Coin</h1>
+      <!-- Button that calls the  /app/flip endpoint-->
       <button onclick="flipCoin()"> Flip a Single Coin </button>
 
+      <!-- Text that shows the result-->
       <p>Result: <span id="result"></span></p>
-      
+
+      <!-- Image that shows a visual representation of the result -->
       <img src="./assets/img/coin.png" id="smallcoin">
 
     </div>
     <div id="multi" class="hidden">
+      <!-- Button that calls the  /app/flip endpoint-->
       <button onclick="flipMultiple()"> Flip Multiple Coins</button>
+
+      <input type="number" id="numberflips" name="numberflips" min="0">
+      <input type="submit" value="Flip">
+
+      <!-- Text that shows the result-->
+      <p>Heads Amount: <span id="heads-result"></span></p>
+      <p>Tails Amount: <span id="tails-result"></span></p>
+
+
     </div>
     <div id="guess" class="hidden">
       <button onclick="guessHeads()"> Guess Heads </button>
