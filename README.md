@@ -144,18 +144,18 @@ curl http://localhost:5000/app/flip/coin/
 #### Response body
 
 ```
-{"flip":"heads"}
+404 NOT FOUND
 ```
 
 #### Response headers
 
 ```
-HTTP/1.1 200 OK
+HTTP/1.1 404 Not Found
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 16
-ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE
-Date: Wed, 20 Apr 2022 05:30:38 GMT
+Content-Length: 13
+ETag:  W/"d-9cDc1x9S0CgmdX/8mukTB8yQ/hY"
+Date: Mon, 25 Apr 2022 16:31:50 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 ```
