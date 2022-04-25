@@ -3,12 +3,19 @@ const minimist = require('minimist');
 const db = require("./src/services/database.js");
 const morgan = require('morgan');
 const fs = require('fs');
+const cors = require('cors')
 
 const app = express()
 const argv = (minimist)(process.argv.slice(2));
 
 // Exposes public directory to the web
 app.use(express.static('./public'));
+
+// Make middleware use cors
+app.use(cors());
+
+// Make Express use its own built-in body parser to handle JSON
+app.use(express.json());
 
 // Set valid args
 argv["port"];
@@ -117,16 +124,16 @@ app.get('/app/flips/:number', (req, res) => {
 app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
     let game = flipACoin(req.params.guess)
     res.status(200).json(game)
-})
+});
 
 // Endpoint that flips multiple coins
 // Takes in argument through POST request
-app.get('/app/flip/coins/', (req, res, next) => {
+app.post('/app/flip/coins/', (req, res, next) => {
   let numFlips = req.body.number;
   let coin_flips = coinFlips(numFlips);
   let flips_counted = countFlips(coin_flips);
   res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
-})
+});
 
 
 // Default response for any other request

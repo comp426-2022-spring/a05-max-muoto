@@ -1,3 +1,4 @@
+
 // Focus div based on nav button click
 document.getElementById("homenav").onclick = function(){
     document.getElementById("home").className = "";
@@ -50,10 +51,10 @@ function flipCoin() {
 
 // Listener so that multi calls flipMultipleCoins() 
 const multi = document.getElementById("numflipsform");
-multi.addEventListener("click", flipMultipleCoins);
+multi.addEventListener("submit", flipCoins);
 
 // Submit handler
-async function flipMultipleCoins(event) {
+async function flipCoins(event) {
     // Prevents automatic form submission
     event.preventDefault();
 
@@ -68,10 +69,19 @@ async function flipMultipleCoins(event) {
         const flips = await sendFlips({ url, formData });
 
         console.log(flips);
-        displayResults(flips);
+        displayMultiResults(flips.raw);
+        
+        if (!flips.summary.heads) {
+            document.getElementById("heads-result").innerHTML = "Heads: 0";
+        } else {
+            document.getElementById("heads-result").innerHTML = "Heads: "+flips.summary.heads;
+        }
 
-        document.getElementById("heads").innerHTML = "Heads: "+flips.summary.heads;
-        document.getElementById("tails").innerHTML = "Tails: "+flips.summary.tails;
+        if (!flips.summary.tails) {
+            document.getElementById("tails-result").innerHTML = "Tails: 0";
+        } else {
+            document.getElementById("tails-result").innerHTML = "Tails: "+flips.summary.tails;
+        }
     } catch (error) {
         console.log(error);
     }
@@ -83,7 +93,7 @@ async function flipMultipleCoins(event) {
 async function sendFlips({ url, formData }) {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJson = JSON.stringify(plainFormData);
-    console.log(formDataJson);
+    console.log(formDataJson); 
 
     const options = {
         method: "POST",
@@ -93,18 +103,51 @@ async function sendFlips({ url, formData }) {
         },
         body: formDataJson
     };
-
     const response = await fetch(url, options);
     return response.json();
+}
+
+function displayMultiResults(multi_results) { 
+    document.getElementById('multi-ht-result').innerHTML = "";
+    for (let i = 0; i < multi_results.length; i++) {
+        document.getElementById('multi-ht-result').innerHTML += `
+        <img id = "smallcoin" src="./assets/img/${multi_results[i]}.png"></img>
+        <p>${multi_results[i]}</p>
+        `
+    }
 }
 
 
 
 // Guess a flip by clicking either heads or tails button
-async function headsGuess() {
-
+function guessHeads() {
+    fetch("http://localhost:5000/app/flip/call/heads")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(result) {
+            console.log(result);
+            document.getElementById("call-result").innerHTML = result.call;
+            document.getElementById("calls-coin").setAttribute("src", "./assets/img/" + result.call + ".png");
+            document.getElementById("flips-result").innerHTML = result.flip;
+            document.getElementById("flip-coin").setAttribute("src", "./assets/img/" + result.flip + ".png");
+            document.getElementById("guess-result").innerHTML = result.result;
+            coin.disabled = true;
+        })
 }
 
-async function tailsGuess() {
-
+function guessTails() {
+    fetch("http://localhost:5000/app/flip/call/tails")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(result) {
+            console.log(result);
+            document.getElementById("call-result").innerHTML = result.call;
+            document.getElementById("calls-coin").setAttribute("src", "./assets/img/" + result.call + ".png");
+            document.getElementById("flips-result").innerHTML = result.flip;
+            document.getElementById("flip-coin").setAttribute("src", "./assets/img/" + result.flip + ".png");
+            document.getElementById("guess-result").innerHTML = result.result;
+            coin.disabled = true;
+        })
 }

@@ -38,7 +38,7 @@
         To play the game click one of the buttons.
         <ul>
           <li>Flip One Coin - Flips a coin and displays the result.</li>
-          <li>Flip Many Coins - Flips multiple coins and display the results.</li>
+          <li>Flip Many Coins - Flip some number of coins and display the results.</li>
           <li>Guess Flip - You can guess either heads or tails and see the actual result to see if you guessed correctly.</li>
         </ul>
     </div>    
@@ -59,15 +59,21 @@
 
       <!-- Form that for entering the amount of flips -->
 
-      <form action id = "numflipsform">
-        <input type="number" id="numberflips" name="numberflips" min="0">
+      <form id = "numflipsform">
+        <input type="number" id="number" placeholder="Enter Amount of Flips" name="number" min="0">
         <input type="submit" value="Flip">
       </form>
  
+      <p><b>Summary:</b></p>
 
-      <!-- Text that shows the result-->
-      <p>Heads Amount: <span id="heads-result"></span></p>
-      <p>Tails Amount: <span id="tails-result"></span></p>
+      <!-- Text that shows a summary of the result-->
+      <p id="heads-result"></p>
+      <p id="tails-result"></p>
+
+      <p><b>Result:</b></p>
+      <!-- Images that represent result-->
+      <div id = "multi-ht-result">
+      </div>
 
 
     </div>
@@ -75,6 +81,14 @@
       <h1>Guess Coin Result</h1>
       <button onclick="guessHeads()"> Guess Heads </button>
       <button onclick="guessTails()"> Guess Tails </button>
+
+
+      <p><b>Calls:</b> <span id="call-result"></span></p>
+      <img src="./assets/img/coin.png" id="calls-coin">
+      <p><b>Flip:</b> <span id="flips-result"></span></p>
+      <img src="./assets/img/coin.png" id="flip-coin">
+      <p><b>Result:</b> <span id="guess-result"></span></p>
+  
     </div>
 	<script src="main.js"></script>
   </body>
