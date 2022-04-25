@@ -43,11 +43,62 @@ function flipCoin() {
         })
 }
 
+
+
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
-async function flipMultipleCoins() {
-    
+
+// Listener so that multi calls flipMultipleCoins() 
+const multi = document.getElementById("numflipsform");
+multi.addEventListener("click", flipMultipleCoins);
+
+// Submit handler
+async function flipMultipleCoins(event) {
+    // Prevents automatic form submission
+    event.preventDefault();
+
+    // Set endpoint and URL
+    const endpoint = "app/flip/coins/";
+    const url = document.baseURI+endpoint;
+
+    const formEvent = event.currentTarget;
+
+    try {
+        const formData = new FormData(formEvent);
+        const flips = await sendFlips({ url, formData });
+
+        console.log(flips);
+        displayResults(flips);
+
+        document.getElementById("heads").innerHTML = "Heads: "+flips.summary.heads;
+        document.getElementById("tails").innerHTML = "Tails: "+flips.summary.tails;
+    } catch (error) {
+        console.log(error);
+    }
+
+
 }
+
+// Data sender
+async function sendFlips({ url, formData }) {
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJson = JSON.stringify(plainFormData);
+    console.log(formDataJson);
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: formDataJson
+    };
+
+    const response = await fetch(url, options);
+    return response.json();
+}
+
+
 
 // Guess a flip by clicking either heads or tails button
 async function headsGuess() {
@@ -55,5 +106,5 @@ async function headsGuess() {
 }
 
 async function tailsGuess() {
-    
+
 }

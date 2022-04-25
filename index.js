@@ -86,7 +86,7 @@ if (log == true) {
 } 
 
 
-// app endpoint
+// Main app endpoint
 app.get('/app/', (req, res) => {
     // Add response headerds
     //res.writeHead( res.statusCode, { 'Content-Type' : 'application/json' });
@@ -94,28 +94,40 @@ app.get('/app/', (req, res) => {
 });
 
 
-// flip endpoint
+// Endpoint that flips a single coin
 app.get('/app/flip/', (req, res) => {
-    flip_result = coinFlip();
+    let flip_result = coinFlip();
     res.status(200).json({"flip" : flip_result});
     console.log(res.getHeaders());
 });
 
 
-// flips endpoint
+// Endpoint that flips multiple coins
+// Takes in argument through ":number"
 app.get('/app/flips/:number', (req, res) => {
-    amt = req.params.number
-    coin_flips = coinFlips(amt)
-    flips_counted = countFlips(coin_flips)
+    let num_flips = req.params.number
+    let coin_flips = coinFlips(num_flips)
+    let flips_counted = countFlips(coin_flips)
     res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
     console.log(res.getHeaders());
 });
 
-
+// Endpoint that sees if your guess is correct
+// Takes in argument through "guess", must be "heads" or "tails"
 app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
-    const game = flipACoin(req.params.guess)
+    let game = flipACoin(req.params.guess)
     res.status(200).json(game)
 })
+
+// Endpoint that flips multiple coins
+// Takes in argument through POST request
+app.get('/app/flip/coins/', (req, res, next) => {
+  let numFlips = req.body.number;
+  let coin_flips = coinFlips(numFlips);
+  let flips_counted = countFlips(coin_flips);
+  res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
+})
+
 
 // Default response for any other request
 app.use(function(req, res){
