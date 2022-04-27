@@ -3,7 +3,7 @@ const minimist = require('minimist');
 const db = require("./src/services/database.js");
 const morgan = require('morgan');
 const fs = require('fs');
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express()
 const argv = (minimist)(process.argv.slice(2));
