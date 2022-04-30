@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const fs = require('fs');
 const cors = require('cors');
 
-const app = express()
+const app = express();
 const argv = (minimist)(process.argv.slice(2));
 
 // Exposes public directory to the web
