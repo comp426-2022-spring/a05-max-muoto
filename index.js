@@ -123,6 +123,7 @@ app.get('/app/flips/:number', (req, res) => {
     console.log(res.getHeaders());
 });
 
+
 // Endpoint that sees if your guess is correct
 // Takes in argument through "guess", must be "heads" or "tails"
 app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
