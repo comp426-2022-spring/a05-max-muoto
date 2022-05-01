@@ -126,7 +126,10 @@ function displayMultiResults(multi_results) {
 
 
 // Guess a flip by clicking either heads or tails button
+
+// Guess heads
 function guessHeads() {
+    // Call /app/flip/call/tails endpoint to get result
     fetch("http://localhost:5000/app/flip/call/heads")
         .then(function(response) {
             return response.json();
