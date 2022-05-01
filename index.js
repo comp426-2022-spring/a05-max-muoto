@@ -144,7 +144,7 @@ app.use(function(req, res){
 });
 
 
-
+// Flips a coin
 function coinFlip() {
     let rand = Math.floor(Math.random() * 2);
     if (rand == 1) {
