@@ -9,6 +9,7 @@ document.getElementById("homenav").onclick = function(){
     document.getElementById("guess").className = "hidden";
 };
 
+// Focus on singlenave and hide other divs
 document.getElementById("singlenav").onclick = function(){
     document.getElementById("home").className = "hidden";
     document.getElementById("single").className = "";
