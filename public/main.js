@@ -142,6 +142,7 @@ function guessHeads() {
         })
 }
 
+// Guess tails
 function guessTails() {
     fetch("http://localhost:5000/app/flip/call/tails")
         .then(function(response) {
