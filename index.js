@@ -155,6 +155,7 @@ function coinFlip() {
   }
   
 
+  // Flip multiple coins
 function coinFlips(flips) {
     let result = [];
     for (let i = 0; i < flips; i++) {
