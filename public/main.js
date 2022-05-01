@@ -114,7 +114,9 @@ async function sendFlips({ url, formData }) {
 }
 
 function displayMultiResults(multi_results) { 
+    // Reset DOM for div
     document.getElementById('multi-ht-result').innerHTML = "";
+    // Add pictures of coins to div
     for (let i = 0; i < multi_results.length; i++) {
         document.getElementById('multi-ht-result').innerHTML += `
         <img id = "smallcoin" src="./assets/img/${multi_results[i]}.png"></img>
