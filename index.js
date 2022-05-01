@@ -84,7 +84,6 @@ if (debug == true) {
       const select_statement = db.prepare('SELECT * FROM accesslog').all();
       res.status(200).json(select_statement);
   });
-
   app.get('/app/error', (req, res) => {
     throw new Error('Error test successful.')
   });
