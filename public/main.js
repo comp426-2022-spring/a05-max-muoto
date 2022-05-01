@@ -145,6 +145,7 @@ function guessHeads() {
 
 // Guess tails
 function guessTails() {
+    // Call /app/flip/call/tails endpoint to get result
     fetch("http://localhost:5000/app/flip/call/tails")
         .then(function(response) {
             return response.json();
