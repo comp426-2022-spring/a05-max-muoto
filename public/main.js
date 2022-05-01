@@ -136,6 +136,7 @@ function guessHeads() {
         })
         .then(function(result) {
             console.log(result);
+            // Make DOM changes based on result
             document.getElementById("call-result").innerHTML = result.call;
             document.getElementById("calls-coin").setAttribute("src", "./assets/img/" + result.call + ".png");
             document.getElementById("flips-result").innerHTML = result.flip;
