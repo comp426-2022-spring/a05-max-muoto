@@ -25,7 +25,7 @@ document.getElementById("multinav").onclick = function(){
     document.getElementById("guess").className = "hidden";
 };
 
-
+// Focus on guessnav and hide other divs
 document.getElementById("guessnav").onclick = function(){
     document.getElementById("home").className = "hidden";
     document.getElementById("single").className = "hidden";
