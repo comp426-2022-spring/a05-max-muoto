@@ -167,7 +167,7 @@ function coinFlips(flips) {
     }
     return result;
 }
-  
+
 
 // Count the number of flips
 function countFlips(array) {
