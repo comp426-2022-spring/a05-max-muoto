@@ -126,7 +126,6 @@ function displayMultiResults(multi_results) {
 }
 
 
-
 // Guess a flip by clicking either heads or tails button
 function guessHeads() {
     fetch("http://localhost:5000/app/flip/call/heads")
