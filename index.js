@@ -107,9 +107,9 @@ app.get('/app/', (req, res) => {
 
 // Endpoint that flips a single coin
 app.get('/app/flip/', (req, res) => {
-    let flip_result = coinFlip();
-    res.status(200).json({"flip" : flip_result});
-    console.log(res.getHeaders());
+  let flip_result = coinFlip();
+  res.status(200).json({"flip" : flip_result});
+  console.log(res.getHeaders());
 });
 
 
