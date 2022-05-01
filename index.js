@@ -90,6 +90,7 @@ if (debug == true) {
   });
 }
 
+
 // Write log file
 if (log == true) {
   const WRITESTREAM = fs.createWriteStream('FILE', { flags: 'a' })
