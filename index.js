@@ -1,3 +1,4 @@
+// Require NPM packages
 const express = require('express');
 const minimist = require('minimist');
 const db = require("./src/services/database.js");
