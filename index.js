@@ -164,7 +164,8 @@ function coinFlips(flips) {
     return result;
 }
   
-  
+
+// Count the number of flips
 function countFlips(array) {
     let num_tails = 0;
     let num_heads = 0;
@@ -191,7 +192,7 @@ function countFlips(array) {
     };
 }
   
-  
+// Sees if you guessed coin flip correctly
 function flipACoin(call) {
     let coin  = coinFlip();
     if (coin == call) {
