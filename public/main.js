@@ -91,8 +91,6 @@ async function flipCoins(event) {
     } catch (error) {
         console.log(error);
     }
-
-
 }
 
 
