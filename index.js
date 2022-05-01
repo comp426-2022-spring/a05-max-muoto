@@ -116,19 +116,19 @@ app.get('/app/flip/', (req, res) => {
 // Endpoint that flips multiple coins
 // Takes in argument through ":number"
 app.get('/app/flips/:number', (req, res) => {
-    let num_flips = req.params.number
-    let coin_flips = coinFlips(num_flips)
-    let flips_counted = countFlips(coin_flips)
-    res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
-    console.log(res.getHeaders());
+  let num_flips = req.params.number
+  let coin_flips = coinFlips(num_flips)
+  let flips_counted = countFlips(coin_flips)
+  res.status(200).json({"raw" : coin_flips, "summary" : flips_counted});
+  console.log(res.getHeaders());
 });
 
 
 // Endpoint that sees if your guess is correct
 // Takes in argument through "guess", must be "heads" or "tails"
 app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
-    let game = flipACoin(req.params.guess)
-    res.status(200).json(game)
+  let game = flipACoin(req.params.guess)
+  res.status(200).json(game)
 });
 
 
