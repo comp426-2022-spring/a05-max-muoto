@@ -25,7 +25,6 @@ argv["port"];
 argv["help"]
 argv["debug"]
 
-
 // Get port from arg, if no arg exists set to 5000
 const HTTP_PORT = argv.port || 5000;
 
