@@ -192,6 +192,7 @@ function countFlips(array) {
     };
 }
   
+
 // Sees if you guessed coin flip correctly
 function flipACoin(call) {
     let coin  = coinFlip();
