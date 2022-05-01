@@ -131,6 +131,7 @@ app.get('/app/flip/call/:guess(heads|tails)/', (req, res, next) => {
     res.status(200).json(game)
 });
 
+
 // Endpoint that flips multiple coins
 // Takes in argument through POST request
 app.post('/app/flip/coins/', (req, res, next) => {
