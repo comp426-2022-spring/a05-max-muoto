@@ -36,12 +36,14 @@ document.getElementById("guessnav").onclick = function(){
 
 // Flip one coin and show coin image to match result when button clicked
 function flipCoin() {
+    // Call /app/flip/ endpoint to flip a coin
     fetch("http://localhost:5000/app/flip/")
         .then(function(response) {
             return response.json();
         })
         .then(function(result) {
             console.log(result);
+            // Make DOM changes based on result
             document.getElementById("result").innerHTML = result.flip;
             document.getElementById("smallcoin").setAttribute("src", "./assets/img/" + result.flip + ".png");
             coin.disabled = true;
