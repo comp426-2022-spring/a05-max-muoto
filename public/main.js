@@ -1,7 +1,7 @@
 
 // Focus div based on nav button click
 
-// Focus on homenvav and hide other divs
+// Focus on homenav and hide other divs
 document.getElementById("homenav").onclick = function(){
     document.getElementById("home").className = "";
     document.getElementById("single").className = "hidden";
