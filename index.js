@@ -56,6 +56,7 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
 });
 
+
 // Creates sqllite database
 app.use((req, res, next) => {
   let logdata = {
@@ -211,5 +212,3 @@ function flipACoin(call) {
       };
     }
 }
-  
-  
