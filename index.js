@@ -5,8 +5,11 @@ const morgan = require('morgan');
 const fs = require('fs');
 const cors = require('cors');
 
-const app = express();
+// Setup Minimist to take arguments
 const argv = (minimist)(process.argv.slice(2));
+
+// Create express app
+const app = express();
 
 // Exposes public directory to the web
 app.use(express.static('./public'));
@@ -17,7 +20,7 @@ app.use(cors());
 // Make Express use its own built-in body parser to handle JSON
 app.use(express.json());
 
-// Set valid args
+// Set valid arguments
 argv["port"];
 argv["help"]
 argv["debug"]
