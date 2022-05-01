@@ -95,6 +95,7 @@ async function flipCoins(event) {
 
 }
 
+
 // Data sender
 async function sendFlips({ url, formData }) {
     const plainFormData = Object.fromEntries(formData.entries());
