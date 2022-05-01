@@ -99,9 +99,9 @@ if (log == true) {
 
 // Main app endpoint
 app.get('/app/', (req, res) => {
-    // Add response headerds
-    //res.writeHead( res.statusCode, { 'Content-Type' : 'application/json' });
-    res.status(200).json({"message" : "Your API works! (200)"});
+  // Add response headerds
+  //res.writeHead( res.statusCode, { 'Content-Type' : 'application/json' });
+  res.status(200).json({"message" : "Your API works! (200)"});
 });
 
 
@@ -161,11 +161,11 @@ function coinFlip() {
 
 // Flip multiple coins
 function coinFlips(flips) {
-    let result = [];
-    for (let i = 0; i < flips; i++) {
-      result.push(coinFlip());
-    }
-    return result;
+  let result = [];
+  for (let i = 0; i < flips; i++) {
+    result.push(coinFlip());
+  }
+  return result;
 }
 
 
@@ -199,18 +199,18 @@ function countFlips(array) {
 
 // Sees if you guessed coin flip correctly
 function flipACoin(call) {
-    let coin  = coinFlip();
-    if (coin == call) {
-      return {
-        call: call,
-        flip: coin,
-        result: "win"
-      };
-    } else {
-      return {
-        call: call,
-        flip: coin,
-        result: "lose"
-      };
-    }
+  let coin  = coinFlip();
+  if (coin == call) {
+    return {
+      call: call,
+      flip: coin,
+      result: "win"
+    };
+  } else {
+    return {
+      call: call,
+      flip: coin,
+      result: "lose"
+    };
+  }
 }
