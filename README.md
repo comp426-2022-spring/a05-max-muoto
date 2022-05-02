@@ -376,17 +376,24 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-curl -X DELETE -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_password", "password":"user_password"}' http://localhost:5000/app/user/delete/
+curl -X DELETE -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_password"}' http://localhost:5000/app/user/delete/
 ```
 
 #### Response body
 
 ```
-
+{"deleted_username: "username", "deleted_password": "password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 63
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
