@@ -354,19 +354,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X PATCH -H 'Content-Type: application/json' -d '{"new_username":"user_username", "new_password":"user_username"}' http://localhost:5000/app/user/update/
 ```
 
 #### Response body
 
 ```
-
+{"new_username: "username", "new_password": "password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 55
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/delete/ (DELETE)
