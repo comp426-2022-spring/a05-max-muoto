@@ -367,7 +367,7 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-curl -X PATCH -H 'Content-Type: application/json' -d '{"new_username":"user_username", "new_password":"user_username"}' http://localhost:5000/app/user/update/
+curl -X PATCH -H 'Content-Type: application/json' -d '{"new_username":"user_username", "new_password":"user_password"}' http://localhost:5000/app/user/update/
 ```
 
 #### Response body
