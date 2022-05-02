@@ -310,19 +310,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_username"}' http://localhost:5000/app/user/new/
 ```
 
 #### Response body
 
 ```
-
+{"success":"true"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 17
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/new/ (POST)
@@ -332,19 +339,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_username"}' http://localhost:5000/app/user/new/
 ```
 
 #### Response body
 
 ```
-
+{"username":"new_username", "password": "new_password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 54
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/update/ (PATCH)
