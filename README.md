@@ -309,7 +309,7 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_username"}' http://localhost:5000/app/user/login/
+curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_password"}' http://localhost:5000/app/user/login/
 ```
 
 #### Response body
