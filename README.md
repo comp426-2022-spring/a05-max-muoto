@@ -376,7 +376,7 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X DELETE -H 'Content-Type: application/json' -d {"username":"user_username", "password":"user_password", "password":"user_password"}' http://localhost:5000/app/user/delete/
 ```
 
 #### Response body
