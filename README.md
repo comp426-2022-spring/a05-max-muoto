@@ -84,19 +84,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/
 ```
 
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE
+Date: Wed, 20 Apr 2022 05:05:30 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flips/:number/ (GET)
@@ -104,19 +111,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flips/2
 ```
 
 #### Response body
 
 ```
-
+{"raw":["heads","heads"],"summary":{"heads":2}}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 47
+ETag: W/"2f-uJAOGbKfXbsFPxfiTHBt4XoD12o
+Date: Wed, 20 Apr 2022 05:08:18 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/coin/ (GET)
@@ -124,7 +138,6 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
 ```
 
 #### Response body
@@ -144,19 +157,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/call/head
 ```
 
 #### Response body
 
 ```
-
+{"call":"heads","flip":"tails","result":"lose"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 47
+ETag: W/"2f-7jHpBxeRlMwmX45a5nEiITPVllI"
+Date: Wed, 20 Apr 2022 05:13:57 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/ (POST)
@@ -260,19 +280,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/error/
 ```
 
 #### Response body
 
 ```
-
+{"error":"false"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/login/ (POST)
@@ -282,19 +309,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_password"}' http://localhost:5000/app/user/login/
 ```
 
 #### Response body
 
 ```
-
+{"success":"true"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 17
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/new/ (POST)
@@ -304,19 +338,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X POST -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_username"}' http://localhost:5000/app/user/new/
 ```
 
 #### Response body
 
 ```
-
+{"username":"new_username", "password": "new_password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 54
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/update/ (PATCH)
@@ -326,19 +367,26 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X PATCH -H 'Content-Type: application/json' -d '{"new_username":"user_username", "new_password":"user_password"}' http://localhost:5000/app/user/update/
 ```
 
 #### Response body
 
 ```
-
+{"new_username: "username", "new_password": "password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 55
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/user/delete/ (DELETE)
@@ -348,17 +396,24 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl -X DELETE -H 'Content-Type: application/json' -d '{"username":"user_username", "password":"user_password"}' http://localhost:5000/app/user/delete/
 ```
 
 #### Response body
 
 ```
-
+{"deleted_username: "username", "deleted_password": "password"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 63
+ETag: W/"11b-9dPTqGfngSPFEOq4loChIlpdSIE"
+Date: Thu, 07 Apr 2022 15:23:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
